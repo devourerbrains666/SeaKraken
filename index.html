@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sea Kraken Game</title>
+    <script src="https://telegram.org/js/games.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #001a33; color: white; margin: 0; padding: 20px; }
+        #game-container { border: 2px solid #00d4ff; padding: 50px; border-radius: 15px; }
+        button { background: #00d4ff; border: none; padding: 15px 30px; font-size: 18px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Sea Kraken</h1>
+        <p>Score: <span id="score">0</span></p>
+        <button onclick="addPoint()">Tap the Kraken!</button>
+        <br><br>
+        <button onclick="submitScore()" style="background: #ff4b2b;">End Game & Save Score</button>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function addPoint() {
+            score++;
+            document.getElementById('score').innerText = score;
+        }
+
+        function submitScore() {
+            // This is where you talk to your Bot's backend
+            alert("Game Over! Final Score: " + score);
+            
+            // To actually save the score, your frontend must send 
+            // the score to YOUR server, and YOUR server tells Telegram.
+            // You cannot set the score directly from the browser for security!
+        }
+    </script>
+</body>
+</html>
